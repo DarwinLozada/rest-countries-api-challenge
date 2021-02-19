@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import Countries from "./Countries";
+import { SearchIcon } from "./IconComponents";
+import Filters from "./Filters";
 
 const CountriesContainer = () => {
   const allCountries = useRef(null);
@@ -32,14 +34,23 @@ const CountriesContainer = () => {
   }, []);
 
   return (
-    <div bgColor={"hsl(0, 0%, 98%)"} height={"100vh"}>
-      <div>
-        <input
-          type="text"
-          placeholder="Search for a country..."
-          onChange={handleInputChange}
-          value={inputValue}
-        />
+    <div className="flex flex-col bg-veryLightGrey dark:bg-veryDarkBlueBg h-screen transition duration-500">
+      <div className="flex flex-col sm:flex-row justify-between mt-8 mx-6">
+        <div
+          className="flex flex-row bg-white dark:darkBlue
+        
+        shadow-md rounded overflow-hidden truncate mb-8"
+        >
+          <SearchIcon width="2rem" className="ml-8 sm:mx-6" />
+          <input
+            className="px-8 py-4 focus:outline-none"
+            type="text"
+            placeholder="Search for a country..."
+            onChange={handleInputChange}
+            value={inputValue}
+          ></input>
+        </div>
+        <Filters />
       </div>
       <div>
         {!allCountries.current ? (

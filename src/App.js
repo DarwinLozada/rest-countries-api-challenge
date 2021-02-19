@@ -6,11 +6,11 @@ import "./tailwind.output.css";
 
 const App = () => {
   return (
-    <div>
-      <ThemeProvider>
+    <div className="global-container">
+      <div>
         <Header />
         <CountriesContainer />
-      </ThemeProvider>
+      </div>
     </div>
   );
 };

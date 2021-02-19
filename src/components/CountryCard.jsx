@@ -2,28 +2,24 @@ import React from "react";
 
 const CountryCard = ({ countryData }) => {
   return (
-    <div>
+    <div className="transform hover:scale-110 hover:shadow-2xl transition duration-500 flex flex-col mx-12 rounded overflow-hidden shadow-lg my-6 cursor-pointer">
       <img
-        width="100%"
+        className="w-full h-full"
         src={countryData.flag}
         alt={`${countryData.name} flag`}
-      ></img>
-      <div
-        display="flex"
-        direction="column"
-        padding="20px 10px 40px 20px"
-        margin="0 0 0 0"
-      >
-        <h3 margin="10px 0 0 0">{countryData.name}</h3>
-        <p margin="20px 0 0 0" fontSize="15px">
+      />
+      <div className="pt-6 pb-10 px-6">
+        <h3 className="font-bold">{countryData.name}</h3>
+        <p className="mt-4 text-xs font-semibold">
           Population:
-          <span>{` ${countryData.population.toLocaleString()}`}</span>
+          <span className="font-normal">{` ${countryData.population.toLocaleString()}`}</span>
         </p>
-        <p margin="6px 0 0 0">
-          Region:<span>{` ${countryData.region}`}</span>
+        <p className="mt-1 text-xs font-semibold">
+          Region:<span className="font-normal">{` ${countryData.region}`}</span>
         </p>
-        <p margin="6px 0 0 0">
-          Capital: <span>{`${countryData.capital}`}</span>
+        <p className="mt-1 text-xs font-semibold">
+          Capital:{" "}
+          <span className="font-normal">{`${countryData.capital}`}</span>
         </p>
       </div>
     </div>
