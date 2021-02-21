@@ -1,27 +1,17 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, createContext } from "react";
 import axios from "axios";
 import Countries from "./Countries";
-import { SearchIcon } from "./IconComponents";
 import Filters from "./Filters";
+
+export const CountriesContext = createContext();
 
 const CountriesContainer = () => {
   const allCountries = useRef(null);
-  const [inputValue, setInputValue] = useState("");
+  const countriesFilteredByInput = useRef(null);
+  const countriesFilteredByRegion = useRef(null);
+  const [inputQuery, setInputQuery] = useState("");
+  const [filterRegion, setFilterRegion] = useState("All");
   const [countriesToRender, setCountriesToRender] = useState(null);
-
-  const handleInputChange = (e) => {
-    e.preventDefault();
-    setInputValue(e.target.value);
-  };
-
-  useEffect(() => {
-    if (allCountries.current) {
-      const filteredCountries = allCountries.current.filter((country) =>
-        country.name.toLowerCase().includes(inputValue.toLowerCase())
-      );
-      setCountriesToRender(filteredCountries);
-    }
-  }, [inputValue]);
 
   useEffect(() => {
     axios
@@ -34,32 +24,32 @@ const CountriesContainer = () => {
   }, []);
 
   return (
-    <div className="flex flex-col bg-veryLightGrey dark:bg-veryDarkBlueBg h-screen transition duration-500">
-      <div className="flex flex-col sm:flex-row justify-between mt-8 mx-6">
-        <div
-          className="flex flex-row bg-white dark:darkBlue
-        
-        shadow-md rounded overflow-hidden truncate mb-8"
-        >
-          <SearchIcon width="2rem" className="ml-8 sm:mx-6" />
-          <input
-            className="px-8 py-4 focus:outline-none"
-            type="text"
-            placeholder="Search for a country..."
-            onChange={handleInputChange}
-            value={inputValue}
-          ></input>
+    <CountriesContext.Provider
+      value={[
+        filterRegion,
+        setFilterRegion,
+        inputQuery,
+        setInputQuery,
+        allCountries,
+        countriesToRender,
+        setCountriesToRender,
+        countriesFilteredByInput,
+        countriesFilteredByRegion,
+      ]}
+    >
+      <div className="flex flex-col bg-veryLightGrey dark:bg-veryDarkBlueBg min-h-screen px-12 transition duration-500">
+        <div className="flex flex-col sm:flex-row justify-between my-12">
+          <Filters />
         </div>
-        <Filters />
+        <div>
+          {!allCountries.current ? (
+            <p>Loading</p>
+          ) : (
+            <Countries countries={countriesToRender} />
+          )}
+        </div>
       </div>
-      <div>
-        {!allCountries.current ? (
-          <p>Loading</p>
-        ) : (
-          <Countries countries={countriesToRender} />
-        )}
-      </div>
-    </div>
+    </CountriesContext.Provider>
   );
 };
 

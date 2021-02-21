@@ -2,7 +2,7 @@ import React from "react";
 
 const CountryCard = ({ countryData }) => {
   return (
-    <div className="transform hover:scale-110 hover:shadow-2xl transition duration-500 flex flex-col mx-12 rounded overflow-hidden shadow-lg my-6 cursor-pointer">
+    <div className="transform hover:scale-110 hover:shadow-2xl flex flex-col dark:bg-darkBlue rounded overflow-hidden shadow-lg my-6 cursor-pointer transition-transform duration-500">
       <img
         className="w-full h-full"
         src={countryData.flag}

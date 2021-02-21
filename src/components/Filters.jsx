@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useContext } from "react";
+import RegionFilter from "./RegionFilter";
+import InputFilter from "./InputFilter";
+import { CountriesContext } from "./CountriesContainer";
 
 const Filters = () => {
-  const [showSelect, toggleShowSelect] = useState(false);
+  const [
+    filterRegion,
+    ,
+    inputQuery,
+    ,
+    ,
+    ,
+    setCountriesToRender,
+    countriesFilteredByInput,
+    ,
+  ] = useContext(CountriesContext);
 
-  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  useEffect(() => {
+    if (filterRegion !== "All") {
+      const filteredCountries = countriesFilteredByInput.current.filter(
+        (country) => country.region === filterRegion
+      );
+      setCountriesToRender(filteredCountries);
+      return;
+    }
+    setCountriesToRender(countriesFilteredByInput.current);
+  }, [inputQuery, filterRegion]);
 
   return (
-    <>
-      <button
-        className="flex flex-row shadow-md relative bg-white p-3 rounded"
-        onClick={() => toggleShowSelect(!showSelect)}
-      >
-        Filter by Region
-      </button>
-      <div className="relative">
-        {showSelect && (
-          <div className="absolute bg-white p-4 rounded shadow-md top-2 z-10 w-full">
-            {regions.map((region) => {
-              return <div className="flex">{region}</div>;
-            })}
-          </div>
-        )}
-      </div>
-    </>
+    <div className="flex flex-col sm:flex-row justify-between w-full">
+      <InputFilter />
+      <RegionFilter />
+    </div>
   );
 };
 
