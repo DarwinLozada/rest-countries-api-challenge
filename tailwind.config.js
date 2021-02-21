@@ -23,6 +23,7 @@ module.exports = {
   variants: {
     extend: {
       animation: ["hover", "focus"],
+      fill: ["hover", "focus"],
     },
   },
   plugins: [],

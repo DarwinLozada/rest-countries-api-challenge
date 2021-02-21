@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UpArrow, DownArrow } from "./IconComponents";
+import { Arrow } from "./IconComponents";
 import { CountriesContext } from "./CountriesContainer";
 
 const RegionFilter = () => {
@@ -46,7 +46,8 @@ const RegionFilter = () => {
           </p>
 
           <div className="ml-8">
-            {isToggled ? <UpArrow width="1rem" /> : <DownArrow width="1rem" />}
+            {/* {isToggled ? <UpArrow width="1rem" /> : <DownArrow width="1rem" />} */}
+            <Arrow width="1rem" />
           </div>
         </button>
         <div className="relative">
