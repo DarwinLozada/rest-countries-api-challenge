@@ -1,5 +1,6 @@
 /node_modules
 /design
+/build
 README.md
 style-guide.md
 src/tailwind.output.css
