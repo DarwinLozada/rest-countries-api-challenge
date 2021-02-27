@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import RegionFilter from "./RegionFilter";
 import InputFilter from "./InputFilter";
-import { CountriesContext } from "./CountriesContainer";
+import { CountriesContext } from "../CountriesContainer";
 
 const Filters = () => {
   const [
@@ -28,7 +28,7 @@ const Filters = () => {
   }, [inputQuery, filterRegion]);
 
   return (
-    <div className="flex flex-col sm:flex-row justify-between w-full">
+    <div className="flex flex-col sm:flex-row justify-between w-full gap-8">
       <InputFilter />
       <RegionFilter />
     </div>

@@ -95,7 +95,7 @@ const SunIcon = ({ width }) => {
   );
 };
 
-const Arrow = ({ width }) => {
+const ArrowIcon = ({ width }) => {
   return (
     <>
       <svg
@@ -120,4 +120,54 @@ const Arrow = ({ width }) => {
   );
 };
 
-export { SearchIcon, MoonIcon, SunIcon, Arrow };
+const PlusIcon = ({ width }) => {
+  return (
+    <>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="ionicon"
+        viewBox="0 0 512 512"
+        style={{
+          width,
+        }}
+      >
+        <title>More</title>
+        <path
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="32"
+          d="M256 112v288M400 256H112"
+        />
+      </svg>
+    </>
+  );
+};
+
+const BackArrowIcon = ({ width }) => {
+  return (
+    <>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="ionicon"
+        viewBox="0 0 512 512"
+        style={{
+          width,
+        }}
+      >
+        <title>Arrow Back</title>
+        <path
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="48"
+          d="M244 400L100 256l144-144M120 256h292"
+        />
+      </svg>
+    </>
+  );
+};
+
+export { SearchIcon, MoonIcon, SunIcon, ArrowIcon, PlusIcon, BackArrowIcon };

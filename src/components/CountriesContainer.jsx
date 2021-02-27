@@ -1,27 +1,21 @@
-import React, { useRef, useState, useEffect, createContext } from "react";
-import axios from "axios";
+import React, { useRef, useState, createContext } from "react";
+
 import Countries from "./Countries";
-import Filters from "./Filters";
+import Filters from "./filters/Filters";
 
 export const CountriesContext = createContext();
 
-const CountriesContainer = () => {
-  const allCountries = useRef(null);
+const CountriesContainer = ({ allCountries }) => {
   const countriesFilteredByInput = useRef(null);
   const countriesFilteredByRegion = useRef(null);
   const [inputQuery, setInputQuery] = useState("");
   const [filterRegion, setFilterRegion] = useState("All");
   const [countriesToRender, setCountriesToRender] = useState(null);
 
-  useEffect(() => {
-    axios
-      .get("https://restcountries.eu/rest/v2/all")
-      .then((response) => {
-        allCountries.current = response.data;
-        setCountriesToRender(response.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  if (allCountries && !countriesToRender) {
+    countriesFilteredByInput.current = allCountries;
+    setCountriesToRender(allCountries);
+  }
 
   return (
     <CountriesContext.Provider
@@ -42,7 +36,7 @@ const CountriesContainer = () => {
           <Filters />
         </div>
         <div>
-          {!allCountries.current ? (
+          {!allCountries ? (
             <p>Loading</p>
           ) : (
             <Countries countries={countriesToRender} />

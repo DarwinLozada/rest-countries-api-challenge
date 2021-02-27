@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Arrow } from "./IconComponents";
-import { CountriesContext } from "./CountriesContainer";
+import { ArrowIcon } from "../iconsComponents/IconComponents";
+import { CountriesContext } from "../CountriesContainer";
 
 const RegionFilter = () => {
   const [isToggled, toggleButton] = useState(false);
@@ -18,14 +18,14 @@ const RegionFilter = () => {
   ] = useContext(CountriesContext);
 
   const returnFilteredCountriesByRegion = () => {
-    const filteredCountry = allCountries.current.filter(
+    const filteredCountry = allCountries.filter(
       (country) => country.region === filterRegion
     );
     return filteredCountry;
   };
 
   useEffect(() => {
-    if (allCountries.current) {
+    if (allCountries) {
       const filteredCountries = returnFilteredCountriesByRegion();
       countriesFilteredByRegion.current = filteredCountries;
     }
@@ -34,7 +34,7 @@ const RegionFilter = () => {
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania", "All"];
   return (
     <>
-      <div className="flex flex-col min-w-min rounded w-1/4">
+      <div className="flex flex-col min-w-min rounded w-1/6">
         <button
           className="flex transition duration-300 items-center justify-between shadow-md bg-white p-3 rounded text-sm dark:bg-darkBlue px-6 focus:outline-none focus:ring-2 h-full"
           onBlur={() => toggleButton(false)}
@@ -45,9 +45,13 @@ const RegionFilter = () => {
             {filterRegion ? filterRegion : "Filter by Region"}
           </p>
 
-          <div className="ml-8">
+          <div
+            className={`transform transition-transform duration-300 ml-8 ${
+              isToggled && "rotate-180"
+            }`}
+          >
             {/* {isToggled ? <UpArrow width="1rem" /> : <DownArrow width="1rem" />} */}
-            <Arrow width="1rem" />
+            <ArrowIcon width="1rem" />
           </div>
         </button>
         <div className="relative">
