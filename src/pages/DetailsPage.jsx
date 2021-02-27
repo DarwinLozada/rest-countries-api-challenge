@@ -34,7 +34,7 @@ const DetailsPage = ({ allCountriesData, countryName }) => {
     );
   }
 
-  return (
+  return ( 
     <div className="transition-all duration-300 flex-col min-h-screen bg-veryLightGrey dark:bg-veryDarkBlueBg">
       <Header />
       <div className="flex flex-col mx-8 lg:mx-16">
@@ -50,7 +50,7 @@ const DetailsPage = ({ allCountriesData, countryName }) => {
         </div>
         <main className="flex flex-col items-center lg:flex-row lg:gap-20 mb-32">
           <div className="flex justify-center h-auto items-center lg:w-1/2">
-            <div className="flex w-full max-w-2xl h-80 lg:max-w-screen-sm lg:min-w-min">
+            <div className="flex w-full max-w-xl h-64 lg:max-w-screen-sm lg:min-w-min lg:h-96">
               <Image
                 src={countryData.flag}
                 alt={`${countryData.name} flag`}
