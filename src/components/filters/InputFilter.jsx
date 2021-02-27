@@ -41,7 +41,7 @@ const InputFilter = () => {
         Search for a country
       </label>
       <div
-        className="flex flex-row items-center min-w-max w-96 bg-white dark:darkBlue shadow-md rounded overflow-hidden truncate dark:bg-darkBlue transition duration-300"
+        className="flex flex-row items-center min-w-min md:w-96 bg-white dark:darkBlue shadow-md rounded overflow-hidden truncate dark:bg-darkBlue transition duration-300"
         ref={inputRef}
       >
         <div className="ml-4 sm:ml-8 mr-4 sm:mx-8 dark:text-white">

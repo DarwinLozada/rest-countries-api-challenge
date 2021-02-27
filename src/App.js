@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CountryPage from "./pages/DetailsPage";
 import axios from "axios";
 import Home from "./pages/Home";
+import NotFoundPage from "./pages/404";
 import "./tailwind.css";
 import "./app.css";
 
@@ -41,11 +42,11 @@ const App = () => {
                     />
                   </Route>
                 ))}
-              <Route path="*">
-                <div>
-                  <h1>This route does not match with anything</h1>
-                </div>
-              </Route>
+              {allCountries && (
+                <Route path="*">
+                  <NotFoundPage />
+                </Route>
+              )}
             </Switch>
           </div>
         </div>
