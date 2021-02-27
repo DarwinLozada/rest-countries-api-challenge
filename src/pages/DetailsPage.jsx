@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { BackArrowIcon } from "../components/iconsComponents/IconComponents";
-import Image from "../components/Image";
+import Image from "../components/feedbackComponents/Image";
 import { allCountriesDataContext } from "../App";
 
 const DetailsPage = ({ allCountriesData, countryName }) => {
@@ -35,9 +35,9 @@ const DetailsPage = ({ allCountriesData, countryName }) => {
   }
 
   return (
-    <div className="transition-all duration-300 flex-col min-h-screen dark:bg-veryDarkBlueBg">
+    <div className="transition-all duration-300 flex-col min-h-screen bg-veryLightGrey dark:bg-veryDarkBlueBg">
       <Header />
-      <div className="flex flex-col mx-8 md:mx-16">
+      <div className="flex flex-col mx-8 lg:mx-16">
         <div className="flex mt-10 mb-14">
           <Link to={"/"}>
             <button className="flex flex-row items-center justify-center px-10 shadow-md py-2 transition duration-200 rounded focus:outline-none focus:ring-2 bg-white hover:bg-gray-200 dark:bg-darkBlue dark:hover:bg-gray-600">
@@ -48,9 +48,9 @@ const DetailsPage = ({ allCountriesData, countryName }) => {
             </button>
           </Link>
         </div>
-        <main className="flex flex-col lg:flex-row lg:gap-20 mb-32">
-          <div className="flex h-auto items-center lg:w-1/2">
-            <div className="flex w-full h-80 lg:h-full lg:max-w-screen-sm lg:min-w-min">
+        <main className="flex flex-col items-center lg:flex-row lg:gap-20 mb-32">
+          <div className="flex justify-center h-auto items-center lg:w-1/2">
+            <div className="flex w-full max-w-2xl h-80 lg:max-w-screen-sm lg:min-w-min">
               <Image
                 src={countryData.flag}
                 alt={`${countryData.name} flag`}

@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex flex-row py-6 px-12 w-full justify-between shadow-md bg-white dark:bg-darkBlue items-center transition duration-500">
+    <div className="relative flex flex-row py-6 px-12 w-full justify-between shadow-md bg-white dark:bg-darkBlue items-center transition duration-500 z-10">
       <h1 className="font-bold text-md mr-4">Where in the world?</h1>
       <button
         className="flex flex-row items-center focus:outline-none"

@@ -31,7 +31,7 @@ const CountriesContainer = ({ allCountries }) => {
         countriesFilteredByRegion,
       ]}
     >
-      <div className="flex flex-col bg-veryLightGrey dark:bg-veryDarkBlueBg min-h-screen px-12 transition duration-500">
+      <div className="flex flex-col bg-veryLightGrey dark:bg-veryDarkBlueBg min-h-screen px-12 transition duration-500 2xl:px-32">
         <div className="flex flex-col sm:flex-row justify-between my-12">
           <Filters />
         </div>
