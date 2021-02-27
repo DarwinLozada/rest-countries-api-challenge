@@ -1,15 +1,10 @@
 import React, { lazy, Suspense } from "react";
+import LoadingSpinner from "../components/feedbackComponents/LoadingSpinner";
 import Header from "../components/Header";
 
-const CountriesContainer = lazy(() => import("../components/CountriesContainer"));
-
-const LoadingSpinner = ({ size }) => {
-  return (
-    <div className="flex items-center justify-center p-20">
-      <div className={`animate-spin rounded-full border-t-4 ${size}`} />
-    </div>
-  );
-};
+const CountriesContainer = lazy(() =>
+  import("../components/CountriesContainer")
+);
 
 const Home = ({ allCountries }) => {
   return (

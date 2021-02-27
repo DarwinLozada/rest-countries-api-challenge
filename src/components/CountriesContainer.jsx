@@ -1,5 +1,5 @@
 import React, { useRef, useState, createContext } from "react";
-
+import LoadingSpinner from "./feedbackComponents/LoadingSpinner";
 import Countries from "./Countries";
 import Filters from "./filters/Filters";
 
@@ -37,7 +37,7 @@ const CountriesContainer = ({ allCountries }) => {
         </div>
         <div>
           {!allCountries ? (
-            <p>Loading</p>
+            <LoadingSpinner size="h-48 w-48" />
           ) : (
             <Countries countries={countriesToRender} />
           )}

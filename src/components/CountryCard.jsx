@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Image from "./Image";
 
 const CountryCard = ({ countryData }) => {
-  console.log(countryData);
   const location = {
     pathname: `${countryData.alpha3Code}`,
   };
