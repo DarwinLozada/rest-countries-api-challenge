@@ -3,7 +3,9 @@ import React, { useState } from "react";
 const LoadingFallback = ({ width, height }) => {
   return (
     <div
-      className={`${width} ${height} bg-gray-300 border-gray-200 animate-pulse`}
+      className={`${width ? width : "w-full"} ${
+        height ? height : "h-full"
+      } bg-gray-300 border-gray-200 animate-pulse`}
     />
   );
 };
@@ -18,7 +20,7 @@ const Image = ({
   const [isImageLoading, setIsImageLoading] = useState(true);
 
   return (
-    <>
+    <div className="w-full h-full">
       {isImageLoading && (
         <LoadingFallback width={placeholderWidth} height={placeholderHeight} />
       )}
@@ -31,7 +33,7 @@ const Image = ({
          ${additionalUtilities}`}
         style={{ display: `${isImageLoading ? "none" : "inline"}` }}
       ></img>
-    </>
+    </div>
   );
 };
 
