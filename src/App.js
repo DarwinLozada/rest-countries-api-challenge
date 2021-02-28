@@ -1,6 +1,6 @@
 import React, { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+
 import CountryPage from "./pages/DetailsPage";
 import axios from "axios";
 import Home from "./pages/Home";
@@ -27,30 +27,28 @@ const App = () => {
       <allCountriesDataContext.Provider value={allCountries}>
         <div className="global-container">
           <div>
-            <AnimatePresence>
-              <Switch>
-                <Route exact path="/">
-                  <Home allCountries={allCountries} />
-                </Route>
-                {allCountries &&
-                  allCountries.map((country) => (
-                    <Route
-                      path={`/${country.alpha3Code}`}
-                      key={country.alpha3Code}
-                    >
-                      <CountryPage
-                        allCountriesData={allCountries}
-                        countryName={country.name}
-                      />
-                    </Route>
-                  ))}
-                {allCountries && (
-                  <Route path="*">
-                    <NotFoundPage />
+            <Switch>
+              <Route exact path="/">
+                <Home allCountries={allCountries} />
+              </Route>
+              {allCountries &&
+                allCountries.map((country) => (
+                  <Route
+                    path={`/${country.alpha3Code}`}
+                    key={country.alpha3Code}
+                  >
+                    <CountryPage
+                      allCountriesData={allCountries}
+                      countryName={country.name}
+                    />
                   </Route>
-                )}
-              </Switch>
-            </AnimatePresence>
+                ))}
+              {allCountries && (
+                <Route path="*">
+                  <NotFoundPage />
+                </Route>
+              )}
+            </Switch>
           </div>
         </div>
       </allCountriesDataContext.Provider>
