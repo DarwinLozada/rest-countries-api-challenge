@@ -25,8 +25,8 @@ const App = () => {
   return (
     <Router>
       <allCountriesDataContext.Provider value={allCountries}>
-        <div className="global-container">
-          <div>
+        <div className="global-container bg-veryLightGrey dark:bg-darkBlue">
+          <div className="bg-veryLightGrey dark:bg-darkBlue">
             <Switch>
               <Route exact path="/">
                 <Home allCountries={allCountries} />
