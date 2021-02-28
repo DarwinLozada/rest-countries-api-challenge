@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Image from "./feedbackComponents/Image";
+import "../app.css";
 
 const CountryCard = ({ countryData }) => {
   const location = {
@@ -9,7 +10,7 @@ const CountryCard = ({ countryData }) => {
 
   return (
     <Link to={location}>
-      <div className="transform hover:scale-110 hover:shadow-2xl flex flex-col dark:bg-darkBlue rounded overflow-hidden shadow-lg my-6 cursor-pointer transition-all duration-300">
+      <div className="hover:opacity-70 hover:shadow-2xl flex flex-col text-black bg-white dark:text-white dark:bg-darkBlue rounded overflow-hidden shadow-lg my-6 cursor-pointer transition-all">
         <Image
           src={countryData.flag}
           alt={`${countryData.name} flag`}

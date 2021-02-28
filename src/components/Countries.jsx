@@ -51,7 +51,7 @@ const Countries = ({ countries }) => {
             onClick={() => setCountryChunksToRender(countryChunksToRender + 1)}
           >
             <p>show more results</p>
-            <div className="ml-4 transition duration-200 rounded-2xl hover:bg-blue-200">
+            <div className="ml-4  rounded-2xl hover:bg-blue-200">
               <PlusIcon width="1.5rem" />
             </div>
           </button>

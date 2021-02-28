@@ -25,7 +25,7 @@ const App = () => {
     <Router>
       <allCountriesDataContext.Provider value={allCountries}>
         <div className="global-container">
-          <div className="dark:text-white transition duration-500">
+          <div>
             <Switch>
               <Route exact path="/">
                 <Home allCountries={allCountries} />

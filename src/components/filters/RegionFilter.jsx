@@ -50,7 +50,6 @@ const RegionFilter = () => {
               isToggled && "rotate-180"
             }`}
           >
-            {/* {isToggled ? <UpArrow width="1rem" /> : <DownArrow width="1rem" />} */}
             <ArrowIcon width="1rem" />
           </div>
         </button>

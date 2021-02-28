@@ -34,13 +34,13 @@ const DetailsPage = ({ allCountriesData, countryName }) => {
     );
   }
 
-  return ( 
-    <div className="transition-all duration-300 flex-col min-h-screen bg-veryLightGrey dark:bg-veryDarkBlueBg">
+  return (
+    <div className="transition-colors duration-300 flex-col min-h-screen bg-veryLightGrey text-black dark:bg-veryDarkBlueBg dark:text-white">
       <Header />
       <div className="flex flex-col mx-8 lg:mx-16">
         <div className="flex mt-10 mb-14">
           <Link to={"/"}>
-            <button className="flex flex-row items-center justify-center px-10 shadow-md py-2 transition duration-200 rounded focus:outline-none focus:ring-2 bg-white hover:bg-gray-200 dark:bg-darkBlue dark:hover:bg-gray-600">
+            <button className="flex flex-row items-center justify-center px-10 shadow-md py-2 transition duration-300 rounded focus:outline-none focus:ring-2 text-black dark:text-white bg-white hover:bg-gray-200 dark:bg-darkBlue dark:hover:bg-gray-600">
               <div>
                 <BackArrowIcon width="1rem" />
               </div>
@@ -132,10 +132,10 @@ const DetailsPage = ({ allCountriesData, countryName }) => {
                         key={`${countryData.name} to ${borderCountry.name}`}
                       >
                         <button
-                          className="transition duration-200 px-8 py-1 rounded shadow dark:bg-darkBlue focus:outline-none focus:ring-2 hover:bg-gray-200 dark:hover:bg-gray-600"
+                          className="px-8 py-1 rounded transition-colors shadow focus:outline-none focus:ring-2 text-black bg-white dark:bg-darkBlue dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600"
                           key={`from ${countryData.name} to ${borderCountry}`}
                         >
-                          {borderCountry.name}
+                          <p> {borderCountry.name}</p>
                         </button>
                       </Link>
                     ) : null;
