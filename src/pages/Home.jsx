@@ -9,12 +9,14 @@ const CountriesContainer = lazy(() =>
 
 const Home = ({ allCountries }) => {
   return (
-    <TransitionPage>
+    <>
       <Header />
-      <Suspense fallback={<LoadingSpinner size="h-20 w-20" />}>
-        <CountriesContainer allCountries={allCountries} />
-      </Suspense>
-    </TransitionPage>
+      <TransitionPage>
+        <Suspense fallback={<LoadingSpinner size="h-20 w-20" />}>
+          <CountriesContainer allCountries={allCountries} />
+        </Suspense>
+      </TransitionPage>
+    </>
   );
 };
 

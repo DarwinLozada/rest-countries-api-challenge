@@ -36,9 +36,9 @@ const DetailsPage = ({ allCountriesData, countryName }) => {
   }
 
   return (
-    <TransitionPage>
-      <div className="transition-colors duration-300 flex-col min-h-screen bg-veryLightGrey text-black dark:bg-veryDarkBlueBg dark:text-white">
-        <Header />
+    <div className="transition-colors duration-300 flex-col min-h-screen bg-veryLightGrey text-black dark:bg-veryDarkBlueBg dark:text-white">
+      <Header />
+      <TransitionPage>
         <div className="flex flex-col mx-8 lg:mx-16">
           <div className="flex mt-10 mb-14">
             <Link to={"/"}>
@@ -56,7 +56,8 @@ const DetailsPage = ({ allCountriesData, countryName }) => {
                 <Image
                   src={countryData.flag}
                   alt={`${countryData.name} flag`}
-                  placeholderWidth={"w-96 lg:w-full"}
+                  placeholderWidth={"w-80 sm:w-96 lg:w-full"}
+                  placeholderHeight={"h-32 md:h-1/2"}
                 />
               </div>
             </div>
@@ -149,8 +150,8 @@ const DetailsPage = ({ allCountriesData, countryName }) => {
             </div>
           </main>
         </div>
-      </div>
-    </TransitionPage>
+      </TransitionPage>
+    </div>
   );
 };
 
