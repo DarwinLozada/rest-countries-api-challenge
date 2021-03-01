@@ -37,7 +37,9 @@ const CountriesContainer = ({ allCountries }) => {
         </div>
         <div>
           {!allCountries ? (
-            <LoadingSpinner size="h-48 w-48" />
+            <div className="h-screen">
+              <LoadingSpinner size="h-48 w-48" />
+            </div>
           ) : (
             <Countries countries={countriesToRender} />
           )}

@@ -12,7 +12,13 @@ const Home = ({ allCountries }) => {
     <>
       <Header />
       <TransitionPage>
-        <Suspense fallback={<LoadingSpinner size="h-20 w-20" />}>
+        <Suspense
+          fallback={
+            <div className="h-screen">
+              <LoadingSpinner size="h-20 w-20" />{" "}
+            </div>
+          }
+        >
           <CountriesContainer allCountries={allCountries} />
         </Suspense>
       </TransitionPage>
