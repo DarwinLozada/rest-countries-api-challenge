@@ -14,7 +14,7 @@ const NotFoundPage = () => {
             <div>
               <BackArrowIcon width="1rem" />
             </div>
-            <p className="ml-2">Back</p>
+            <p className="ml-2">Home</p>
           </button>
         </Link>
         <h2 className="font-bold text-6xl">:(</h2>
