@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const TransitionPage = ({ children }) => {
-  const [isEntering, setIsEntering] = useState(false);
+  const [isEntering, setIsEntering] = useState(true);
 
   const transitionStyles = {
     exited: "opacity-0",
@@ -10,13 +10,13 @@ const TransitionPage = ({ children }) => {
 
   useEffect(() => {
     console.log(isEntering);
-    setIsEntering(true);
+    setIsEntering(false);
   }, []);
 
   return (
     <div
       className={`transition-opacity duration-300 ${
-        isEntering ? transitionStyles.entered : transitionStyles.exited
+        isEntering ? transitionStyles.exited : transitionStyles.entered
       }`}
     >
       {children}

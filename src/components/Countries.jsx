@@ -1,5 +1,6 @@
 import React, { useState, useEffect, lazy } from "react";
 import { PlusIcon } from "./iconsComponents/IconComponents";
+import TransitionComponent from "./transitions/TransitionComponent";
 
 const chunkLength = 10;
 
@@ -38,7 +39,7 @@ const Countries = ({ countries }) => {
   const countriesToRender = slicedCountries.slice(0, countryChunksToRender);
 
   return (
-    <>
+    <TransitionComponent>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
         {countriesToRender.map((countryChunk) => {
           return <CardsChunk key={countryChunk[0]} countries={countryChunk} />;
@@ -57,7 +58,7 @@ const Countries = ({ countries }) => {
           </button>
         )}
       </div>
-    </>
+    </TransitionComponent>
   );
 };
 

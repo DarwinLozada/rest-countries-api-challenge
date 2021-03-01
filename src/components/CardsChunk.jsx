@@ -1,9 +1,14 @@
 import React from "react";
 import CountryCard from "./CountryCard";
+import TransitionComponent from "./transitions/TransitionComponent";
 
 const RenderCountryCards = ({ countries }) => {
   return countries.map((countryData) => {
-    return <CountryCard key={countryData.name} countryData={countryData} />;
+    return (
+      <TransitionComponent>
+        <CountryCard key={countryData.name} countryData={countryData} />{" "}
+      </TransitionComponent>
+    );
   });
 };
 
