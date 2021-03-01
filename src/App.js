@@ -5,6 +5,7 @@ import CountryPage from "./pages/DetailsPage";
 import axios from "axios";
 import Home from "./pages/Home";
 import NotFoundPage from "./pages/404";
+import TransitionPage from "./components/transitions/TransitionComponent";
 import "./tailwind.css";
 import "./app.css";
 
@@ -25,32 +26,34 @@ const App = () => {
   return (
     <Router>
       <allCountriesDataContext.Provider value={allCountries}>
-        <div className="global-container bg-veryLightGrey dark:bg-darkBlue">
-          <div className="bg-veryLightGrey dark:bg-darkBlue">
-            <Switch>
-              <Route exact path="/">
-                <Home allCountries={allCountries} />
-              </Route>
-              {allCountries &&
-                allCountries.map((country) => (
-                  <Route
-                    path={`/${country.alpha3Code}`}
-                    key={country.alpha3Code}
-                  >
-                    <CountryPage
-                      allCountriesData={allCountries}
-                      countryName={country.name}
-                    />
-                  </Route>
-                ))}
-              {allCountries && (
-                <Route path="*">
-                  <NotFoundPage />
+        <TransitionPage>
+          <div className="global-container bg-veryLightGrey dark:bg-darkBlue">
+            <div className="bg-veryLightGrey dark:bg-darkBlue">
+              <Switch>
+                <Route exact path="/">
+                  <Home allCountries={allCountries} />
                 </Route>
-              )}
-            </Switch>
+                {allCountries &&
+                  allCountries.map((country) => (
+                    <Route
+                      path={`/${country.alpha3Code}`}
+                      key={country.alpha3Code}
+                    >
+                      <CountryPage
+                        allCountriesData={allCountries}
+                        countryName={country.name}
+                      />
+                    </Route>
+                  ))}
+                {allCountries && (
+                  <Route path="*">
+                    <NotFoundPage />
+                  </Route>
+                )}
+              </Switch>
+            </div>
           </div>
-        </div>
+        </TransitionPage>
       </allCountriesDataContext.Provider>
     </Router>
   );

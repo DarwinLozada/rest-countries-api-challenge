@@ -5,7 +5,7 @@ import axios from "axios";
 import { BackArrowIcon } from "../components/iconsComponents/IconComponents";
 import Image from "../components/feedbackComponents/Image";
 import { allCountriesDataContext } from "../App";
-import TransitionPage from "./TransitionPage";
+import TransitionPage from "../components/transitions/TransitionComponent";
 
 const DetailsPage = ({ allCountriesData, countryName }) => {
   const dataFromCountriesContext = useContext(allCountriesDataContext).find(
