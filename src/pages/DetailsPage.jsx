@@ -16,7 +16,6 @@ const DetailsPage = ({ allCountriesData, countryName }) => {
 
   useEffect(() => {
     if (!countryData) {
-      console.log("hola");
       axios
         .get(`https://restcountries.eu/rest/v2/name/${countryName}`)
         .then((response) => {

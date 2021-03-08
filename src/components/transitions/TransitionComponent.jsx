@@ -9,7 +9,6 @@ const TransitionPage = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log(isEntering);
     setIsEntering(false);
   }, []);
 
