@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CountryPage from "./pages/DetailsPage";
 import axios from "axios";
 import Home from "./pages/Home";
-import SEO from "./components/SEO.jsx";
 import NotFoundPage from "./pages/404";
 import TransitionPage from "./components/transitions/TransitionComponent";
 import "./tailwind.css";
@@ -27,7 +26,6 @@ const App = () => {
   return (
     <Router>
       <allCountriesDataContext.Provider value={allCountries}>
-        <SEO />
         <TransitionPage>
           <div className="global-container bg-veryLightGrey dark:bg-darkBlue">
             <div className="bg-veryLightGrey dark:bg-darkBlue">
